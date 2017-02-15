@@ -7,11 +7,10 @@ using System.Data.SQLite;
 using System.Data;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication4.Class
+namespace WindowsFormsApplication4.Controller
 {
     public class C_datagridview
     {
-
         public SQLiteConnection connection { set; get; }
         public SQLiteDataReader reader { set; get; }
 

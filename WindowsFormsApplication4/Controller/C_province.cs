@@ -7,19 +7,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApplication4.Model;
 
-
-namespace WindowsFormsApplication4.Class
+namespace WindowsFormsApplication4.Controller
 {
     public class C_province
     {
-        SQLiteConnection sqlite_conn; 
+        SQLiteConnection sqlite_conn;
         SQLiteCommand sqlite_cmd;
         SQLiteDataReader sqlite_datareader;
 
         connection connector = new connection();
 
         M_province provEntity = new M_province();
-        List<M_province> listProv = new List<M_province>(); 
+        List<M_province> listProv = new List<M_province>();
         public List<M_province> dataArrayProv()
         {
             sqlite_conn = connector.con();
@@ -40,7 +39,7 @@ namespace WindowsFormsApplication4.Class
         {
             sqlite_conn = connector.con();
             sqlite_conn.Open();
-            SQLiteCommand comm = sqlite_conn.CreateCommand(); 
+            SQLiteCommand comm = sqlite_conn.CreateCommand();
             comm.CommandText = @"INSERT INTO `Province`
                     (
                         `Province_name`
@@ -48,11 +47,11 @@ namespace WindowsFormsApplication4.Class
                     VALUES
                     (
                         @province
-                    );"; 
-            comm.Parameters.AddWithValue("@province", entity.province_name); 
+                    );";
+            comm.Parameters.AddWithValue("@province", entity.province_name);
             comm.ExecuteNonQuery();
             sqlite_conn.Close();
-            MessageBox.Show("Succesfully Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+            MessageBox.Show("Succesfully Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public int prov_id(string Province)

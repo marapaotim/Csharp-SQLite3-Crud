@@ -50,36 +50,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\connection.cs" />
-    <Compile Include="Class\C_datagridview.cs" />
-    <Compile Include="Class\C_person.cs" />
-    <Compile Include="Class\C_province.cs" />
-    <Compile Include="Form\Form1.cs">
+    <Compile Include="Controller\connection.cs" />
+    <Compile Include="Controller\C_datagridview.cs" />
+    <Compile Include="Controller\C_person.cs" />
+    <Compile Include="Controller\C_province.cs" />
+    <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Form1.Designer.cs">
+    <Compile Include="View\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\personFrm.cs">
+    <Compile Include="View\personFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\personFrm.Designer.cs">
+    <Compile Include="View\personFrm.Designer.cs">
       <DependentUpon>personFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\M_person.cs" />
     <Compile Include="Model\M_province.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Form\provinceFrm.cs">
+    <Compile Include="View\provinceFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\provinceFrm.Designer.cs">
+    <Compile Include="View\provinceFrm.Designer.cs">
       <DependentUpon>provinceFrm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form\Form1.resx">
+    <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\personFrm.resx">
+    <EmbeddedResource Include="View\personFrm.resx">
       <DependentUpon>personFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -91,7 +91,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form\provinceFrm.resx">
+    <EmbeddedResource Include="View\provinceFrm.resx">
       <DependentUpon>provinceFrm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

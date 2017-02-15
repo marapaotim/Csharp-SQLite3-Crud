@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApplication4.Model;
-using WindowsFormsApplication4.Class;
+using WindowsFormsApplication4.Controller;
 
 namespace WindowsFormsApplication4
 {

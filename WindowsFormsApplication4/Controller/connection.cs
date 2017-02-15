@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication4.Class
+namespace WindowsFormsApplication4.Controller
 {
     public class connection
     {
@@ -14,15 +14,15 @@ namespace WindowsFormsApplication4.Class
 
         string locationDB = Application.StartupPath + "\\database2.db";
         public SQLiteConnection con()
-        { 
+        {
             sqlite_conn = new SQLiteConnection();
             sqlite_conn.ConnectionString = "Data Source=" + locationDB + ";Version=3;New=false;Compress=false;";
             try
             {
                 sqlite_conn.Open();
-                sqlite_conn.Close(); 
+                sqlite_conn.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error " + ex.ToString());
             }

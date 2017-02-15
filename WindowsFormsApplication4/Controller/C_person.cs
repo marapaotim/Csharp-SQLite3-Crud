@@ -7,7 +7,7 @@ using WindowsFormsApplication4.Model;
 using System.Data.SQLite;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication4.Class
+namespace WindowsFormsApplication4.Controller
 {
     public class C_person
     {
@@ -44,9 +44,9 @@ from person p left join Province pr on p.province_id = pr.id;";
  p.gender as `Gender`,
  p.address as `Address`,
  pr.Province_name as `Province`
-from person p left join Province pr on p.province_id = pr.id where pr.Province_name like '%"+ prov_name +"%';";
+from person p left join Province pr on p.province_id = pr.id where pr.Province_name like '%" + prov_name + "%';";
             return a;
-        } 
+        }
 
 
         public static int Person_id;
@@ -65,10 +65,10 @@ from person p left join Province pr on p.province_id = pr.id where pr.Province_n
  p.gender as `Gender`,
  p.address as `Address`,
  pr.Province_name as `Province`
-from person p left join Province pr on p.province_id = pr.id where p.id = '"+ Person_id + "';"; 
+from person p left join Province pr on p.province_id = pr.id where p.id = '" + Person_id + "';";
             sqlite_datareader = sqlite_cmd.ExecuteReader();
             while (sqlite_datareader.Read())
-            { 
+            {
                 entityPerson.M_firstname = sqlite_datareader.GetString(1);
                 entityPerson.M_middlename = sqlite_datareader.GetString(2);
                 entityPerson.M_lastname = sqlite_datareader.GetString(3);
@@ -129,11 +129,11 @@ from person p left join Province pr on p.province_id = pr.id where p.id = '"+ Pe
                     `gender` = @gender,
                     `address` = @address,
                     `province_id` = @provid
-                    WHERE `id` = '"+ Person_id + "';";
+                    WHERE `id` = '" + Person_id + "';";
 
                 msg = "Successfully Updated";
             }
-            comm.CommandText = qryExecute; 
+            comm.CommandText = qryExecute;
             comm.Parameters.AddWithValue("@firstname", entity.M_firstname);
             comm.Parameters.AddWithValue("@middlename", entity.M_middlename);
             comm.Parameters.AddWithValue("@lastname", entity.M_lastname);
@@ -141,7 +141,7 @@ from person p left join Province pr on p.province_id = pr.id where p.id = '"+ Pe
             comm.Parameters.AddWithValue("@contactnumber", entity.M_contactnumber);
             comm.Parameters.AddWithValue("@gender", entity.M_gender);
             comm.Parameters.AddWithValue("@address", entity.M_address);
-            comm.Parameters.AddWithValue("@provid", entity.M_provinceID); 
+            comm.Parameters.AddWithValue("@provid", entity.M_provinceID);
             comm.ExecuteNonQuery();
             sqlite_conn.Close();
             MessageBox.Show(msg, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -154,11 +154,11 @@ from person p left join Province pr on p.province_id = pr.id where p.id = '"+ Pe
             string msg = "";
             sqlite_conn = connector.con();
             sqlite_conn.Open();
-            SQLiteCommand comm = sqlite_conn.CreateCommand(); 
-            qryExecute = @"DELETE FROM `person` WHERE id = @id;"; 
-            msg = "Succesfully Deleted"; 
+            SQLiteCommand comm = sqlite_conn.CreateCommand();
+            qryExecute = @"DELETE FROM `person` WHERE id = @id;";
+            msg = "Succesfully Deleted";
             comm.CommandText = qryExecute;
-            comm.Parameters.AddWithValue("@id", Person_id); 
+            comm.Parameters.AddWithValue("@id", Person_id);
             comm.ExecuteNonQuery();
             sqlite_conn.Close();
             MessageBox.Show(msg, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
