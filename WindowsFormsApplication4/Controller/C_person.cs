@@ -34,7 +34,7 @@ from person p left join Province pr on p.province_id = pr.id;";
 
         public static string Provinceqry(string prov_name)
         {
-            string a = @"select 
+            return @"select 
  p.id, 
  p.first_name as `First Name`, 
  p.middle_name  as `Middle Name`,
@@ -44,8 +44,7 @@ from person p left join Province pr on p.province_id = pr.id;";
  p.gender as `Gender`,
  p.address as `Address`,
  pr.Province_name as `Province`
-from person p left join Province pr on p.province_id = pr.id where pr.Province_name like '%" + prov_name + "%';";
-            return a;
+from person p left join Province pr on p.province_id = pr.id where pr.Province_name like '%" + prov_name + "%';"; 
         }
 
 
